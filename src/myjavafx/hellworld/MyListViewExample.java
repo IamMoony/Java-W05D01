@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -17,6 +18,8 @@ public class MyListViewExample extends Application {
 
         ListView listView = new ListView();
 
+        listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         listView.getItems().add("List item 1");
         listView.getItems().add("List item 2");
         listView.getItems().add("List item 3");
@@ -28,7 +31,6 @@ public class MyListViewExample extends Application {
 
         btn.setOnAction(e -> {
             ObservableList selectedIndices = listView.getSelectionModel().getSelectedIndices();
-
             for(Object o : selectedIndices) {
                 System.out.println("o: " + o + "(" + o.getClass() + ")");
             }
